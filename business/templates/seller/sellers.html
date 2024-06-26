@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Médicos{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="alert alert-info">Foram encontrados: {{ sellers | length }} Vendedor(s)</div>
+        <div class="row">
+
+        {% for seller in sellers %}
+            <div class="col-xs-12 col-md-3 col-lg-3">
+                <div class="card mb-4">
+                    <div class="image-circle" style="background-image: url('/media/{{seller.image}}');"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{seller.user.get_full_name}}</h5>
+                        <ul class="category">
+                            {% for category in seller.category.all %}
+                                <li>{{category}}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="address mb-2" title="{{seller.addresses.first.address}}" alt="{{medic.addresses.first.address}}">
+                            {{medic.addresses.first.address | default:"Nenhum endereço." | slice:":15"}}...
+                        </div>
+                        <a href={% url 'profile' seller.user.id %} class="btn btn-primary btn-card">Ver Vendedor</a>
+                        <button class="btn btn-danger btn-card"><i class="fa fa-heart"></i> Favoritos</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
