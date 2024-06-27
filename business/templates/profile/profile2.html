@@ -17,9 +17,17 @@
                     </div>
                     <h6 class="f-w-600">{{profile.user.get_full_name}}</h6>
                     {% if profile.role == 1 %}
-                    <p class="badge badge-primary text-center" id="badge-role"><i class="fa fa-building"></i> Administrador</p>
+                        <p class="badge badge-primary text-center" id="badge-role"><i class="fa fa-building"></i> Administrador</p>
+                    {% elif profile.role == 2 %}
+                        <p class="badge badge-success text-center" id="badge-role"><i class="fa fa-building"></i> Vendedor</p>
+                    {% elif profile.role == 3 %}
+                        <p class="badge badge-danger text-center" id="badge-role"><i class="fa fa-building"></i> Cliente</p>                   
+                    {% elif profile.role == 4 %}
+                        <p class="badge badge-warning text-center" id="badge-role"><i class="fa fa-building"></i> Motoentregador</p>
                     {% endif %}
                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                    <a class="nav-link" style="background-color: blue; color: white;" href={% url "edit-profile" %}><i class="fa fa-edit"></i> Editar Perfil</a></li>
+                   
                 </div>
             </div>
             <div class="col-sm-8">
