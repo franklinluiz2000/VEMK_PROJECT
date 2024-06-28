@@ -1,7 +1,14 @@
 body
 {
-    background-color: #f1f7ff;
+    /* background-color: #f1f7ff; */
+    background-color: black;
 }
+
+#content
+{
+    background-color: rgb(82, 7, 2);
+}
+
 
 #content form
 {

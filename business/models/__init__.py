@@ -6,8 +6,8 @@ from django.dispatch import receiver
 ROLE_CHOICE = (
     (1, 'Admin'),
     (2, 'Vendedor'),
-    (3, 'Cliente'),
-    (4, 'Entregador')
+    (3, 'Entregador'),
+    (4, 'Cliente')
 )
 
 STATE_CHOICE = (

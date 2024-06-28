@@ -12,7 +12,7 @@ class UserProfileForm(ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['user', 'role', 'birthday', 'image']
+        fields = ['user', 'cpf',  'role', 'birthday', 'phone', 'address', 'cep', 'city', 'state', 'image']
         # Usamos '__all__' para	exibir todos os campos como itens do formulário
         # fields = '__all__'
         # Usamos uma lista para definir quando queremos	exibir campos específicos
@@ -23,9 +23,16 @@ class UserProfileForm(ModelForm):
         widgets = {
 
             'user': forms.HiddenInput(),
+            'cpf': forms.NumberInput({'class': "form-control"}),
             'role': forms.Select(attrs={'class': "form-control"}),
             'birthday': forms.DateInput(attrs={'class': "form-control", "type":"date"}),
-            'image': forms.FileInput(attrs={'class': "form-control"})
+            'phone': forms.NumberInput({'class': "form-control"}),
+            'address': forms.TextInput(attrs={'class': "form-control"}),
+            'cep': forms.NumberInput(attrs={'class': "form-control"}),
+            'city': forms.TextInput(attrs={'class': "form-control"}),
+            'state': forms.TextInput(attrs={'class': "form-control"}),
+            'image': forms.FileInput(attrs={'class': "form-control"}),
+            
 
 
 

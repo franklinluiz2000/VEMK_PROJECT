@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from business.models import Profile
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from business.forms.userProfileForm import UserProfileForm, UserForm
 
 def list_profile_view(request, id=None):
@@ -33,7 +34,7 @@ def list_profile_view(request, id=None):
     # return HttpResponse(id)
     return render(request, template_name='profile/profile2.html', context=context, status=200)
 
-
+@login_required
 def	edit_profile(request):
     profile	= get_object_or_404(Profile, user=request.user)
     emailUnused	=	True

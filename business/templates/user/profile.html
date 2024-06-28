@@ -1,8 +1,7 @@
 {%	extends	"base.html"	%}
 {%	load static	%}
 {%	block	title	%}Perfil{%	endblock	%}
-{%	block	styles	%}<link rel="stylesheet" href="{%	static	'css/hom
-e.css'	%}">{%	endblock	%}
+{%	block	styles	%}<link rel="stylesheet" href="{%	static	'css/home.css'	%}">{%	endblock	%}
 {%	block	content	%}
 <div id="content">
     <div class="container-fluid">
@@ -17,7 +16,7 @@ e.css'	%}">{%	endblock	%}
                     {% for f in userForm %}
                         {% if not f.is_hidden %}
                         <div class="form-group col-md-6">
-                            {{ f.label }}
+                           <h5><strong> {{ f.label }} </strong></h5>
                             {{ f }}
                             {% for error in	f.errors %}
                                 <div class="invalid-feedback" style="display: initial;">{{ error }}</div>
@@ -31,7 +30,7 @@ e.css'	%}">{%	endblock	%}
                     {% for f in profileForm %}
                         {% if not f.is_hidden %}
                         <div class="form-group col-md-6">
-                            {{ f.label }}
+                            <h6><strong> {{ f.label }} </strong></h6>
                             {{ f }}
                             {% for error in	f.errors %}
                                 <div class="invalid-feedback" style="display: initial;">{{ error }}</div>
