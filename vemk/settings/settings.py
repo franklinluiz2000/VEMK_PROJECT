@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'business',
+    'django_otp',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,5 @@ LOGOUT_URL ='/logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/logout'
 LOGOUT_REDIRECT_URL = '/login'
+
+OTP_BACKEND = 'django_otp.backend.twofactor.DefaultBackend'

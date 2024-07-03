@@ -3,7 +3,7 @@ from django.db.models import Sum, Count
 
 
 class Company(models.Model):
-    name = models.CharField(max_length=100, null=False, blank=False)
+    name_company = models.OneToOneField(User, on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14, null=False, blank=False)
     address = models.CharField(blank=True, max_length=100)
     cep = models.CharField(blank=True, max_length=8)
@@ -25,6 +25,29 @@ class Company(models.Model):
         return '{} - {}'.format(self.name, self.cnpj)
     
     
+    @receiver(post_save, sender=User)
+    def create_user_company(sender, instance, created, **kwargs):
+        try:
+            if created:
+                    Company.objects.create(user=instance)
+        except:
+            pass
+
+    
+    @receiver(post_save, sender=User)
+    def save_user_company(sender, instance, **kwargs):
+        try:
+            instance.company.save()
+        except:
+            pass
+
+
+
+
+
+
+
+
     
     def show_scoring_average(self):
         from .rating import Rating

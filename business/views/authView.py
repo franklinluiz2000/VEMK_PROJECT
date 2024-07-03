@@ -5,6 +5,7 @@ from business.models.profile import Profile
 from business.forms.authForm import LoginForm, RegisterForm, RecoveryForm
 
 def login_view(request):
+   
     loginForm = LoginForm()
     message = None
 
@@ -79,6 +80,7 @@ def	register_view(request):
     return	render(request,	template_name='auth/auth.html',	context=context,	status=200)
 
 def logout_view(request):
+    request.session.flush()
     logout(request)
     return redirect('/login')
 
